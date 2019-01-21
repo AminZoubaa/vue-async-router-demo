@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import uuid from 'uuid';
 import Router from './module/vue-router-async';
+import Resolver from './service/resolver';
 import ObjectView from './views/Object.vue';
 import AsyncView from './views/Async.vue';
 import FunctionView from './views/Function.vue';
@@ -46,12 +47,8 @@ export default new Router({
       props: async () => ({
         userHeadline: 'Userlist',
         commentHeadline: 'Comments',
-        userlist: await fetch('https://jsonplaceholder.typicode.com/users')
-          .then(response => response.json())
-          .then(data => data),
-        commentlist: await fetch('https://jsonplaceholder.typicode.com/comments?_limit=10')
-          .then(response => response.json())
-          .then(data => data),
+        userlist: await Resolver.userlist,
+        commentlist: await Resolver.commentlist,
       }),
     },
   ],
