@@ -1,4 +1,4 @@
-# vue-async-router-demo
+# [vue-async-router-demo](https://github.com/AminZoubaa/vue-async-router-demo)
 
 ## Project setup
 ```
