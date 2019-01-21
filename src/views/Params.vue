@@ -8,7 +8,7 @@
 export default {
   name: 'home',
   props: {
-    username: '',
+    username: null,
     postId: null,
   },
 };
