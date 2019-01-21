@@ -6,11 +6,17 @@ import ObjectView from './views/Object.vue';
 import AsyncView from './views/Async.vue';
 import FunctionView from './views/Function.vue';
 import ParamsView from './views/Params.vue';
+import Home from './views/Home.vue';
 
 Vue.use(Router);
 
 export default new Router({
   routes: [
+    {
+      path: '/',
+      name: 'home',
+      component: Home,
+    },
     {
       path: '/object',
       name: 'object',
@@ -49,6 +55,17 @@ export default new Router({
         commentHeadline: 'Comments',
         userlist: await Resolver.userlist,
         commentlist: await Resolver.commentlist,
+      }),
+    },
+    {
+      path: '/userlist-cache',
+      name: 'async-cached',
+      component: AsyncView,
+      props: async () => ({
+        userHeadline: 'Userlist',
+        commentHeadline: 'Comments',
+        userlist: await Resolver.cachedUserlist,
+        commentlist: await Resolver.cachedCommentlist,
       }),
     },
   ],

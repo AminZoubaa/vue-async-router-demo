@@ -4,7 +4,8 @@
       <router-link to="/object">static object data</router-link> |
       <router-link to="/category/435678">function</router-link> |
       <router-link to="/home/username/post/4567876">params from url</router-link> |
-      <router-link to="/userlist">async from api</router-link>
+      <router-link to="/userlist">async from api</router-link> |
+      <router-link to="/userlist-cache">async onetime cache</router-link>
     </div>
     <router-view/>
     <div v-if="$routerLoading" id="loading-overlay">Loading...</div>

@@ -57,18 +57,21 @@ VueRouter.prototype.init = function init(app, ...args) {
             matchProps.forEach((propKey) => {
               const props = match.props[propKey];
 
-              if (typeof props === 'function') {
-                if (!match.cache_props) {
-                  match.cache_props = props;
+              if (
+                typeof props === 'function'
+                || match.originCallback !== undefined
+              ) {
+                if (!match.originCallback) {
+                  match.originCallback = props;
                 }
 
-                const result = match.cache_props(to);
+                const result = match.originCallback(to);
 
                 if (Promise.resolve(result) === result) {
                   asyncStatus.addCount();
 
                   result.then((data) => {
-                    match.props[propKey] = () => data;
+                    match.props[propKey] = data;
                     asyncStatus.removeCount();
                     next();
                   }).catch((e) => {
