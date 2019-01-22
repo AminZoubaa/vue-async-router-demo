@@ -1,4 +1,4 @@
-const userURL = 'http://slowwly.robertomurray.co.uk/delay/2000/url/https://jsonplaceholder.typicode.com/users';
+const userURL = 'https://jsonplaceholder.typicode.com/users';
 const commentURL = 'https://jsonplaceholder.typicode.com/comments?_limit=10';
 const options = { cache: 'no-cache' };
 
